@@ -1,0 +1,255 @@
+---
+layout: post
+title: Reykjavik versus Gothenburg Weather Comparison
+date: 2026-02-21 00:00:00 +0000
+---
+<p>Data visualization comparing weather patterns between Reykjavik, Iceland and Gothenburg, Sweden</p>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+        
+        header {
+            background: #ffffff;
+            color: #333;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.7;
+            color: #666;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .blog-section {
+            margin-bottom: 80px;
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-number {
+            display: inline-block;
+            background: #e0e0e0;
+            color: #666;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .plot-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #333;
+            margin: 15px 0 20px 0;
+            line-height: 1.3;
+        }
+        
+        .plot-description {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+        
+        .plot-container {
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 6px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ddd, transparent);
+            margin: 60px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #f8f9fa;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .plot-title {
+                font-size: 1.4em;
+            }
+            
+            .plot-container {
+                height: 400px;
+            }
+            
+            .blog-section {
+                margin-bottom: 60px;
+            }
+        }
+    </style>
+
+<div class="container">
+    <!-- Section 1: Temperature Patterns -->
+    <div class="blog-section">
+            <div class="section-number">1</div>
+            <h2 class="plot-title">Temperature Patterns</h2>
+            <p class="plot-description">
+                Which one is warmer?
+            </p>
+            <div class="plot-container">
+                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_monthly_temperature.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Section 2: Yearly Temperature Trends -->
+        <div class="blog-section">
+            <div class="section-number">2</div>
+            <h2 class="plot-title">Yearly Temperature Trends</h2>
+            <p class="plot-description">
+                By year.
+            </p>
+            <div class="plot-container">
+                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_yearly_temperature.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Section 3: Wind Patterns -->
+        <div class="blog-section">
+            <div class="section-number">3</div>
+            <h2 class="plot-title">The wind</h2>
+            <p class="plot-description">
+                Which one is windier?
+            </p>
+            <div class="plot-container">
+                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_monthly_wind.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Section 4: Precipitation -->
+        <div class="blog-section">
+            <div class="section-number">4</div>
+            <h2 class="plot-title">Rain-kjavík or Raining-burg?</h2>
+            <p class="plot-description">
+                Where does it rain more?
+            </p>
+            <div class="plot-container">
+                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_yearly_precipitation.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Section 5: Monthly Sunshine Hours -->
+        <div class="blog-section">
+            <div class="section-number">5</div>
+            <h2 class="plot-title">Monthly Sunshine Hours: Does midnight sun count?</h2>
+            <p class="plot-description">
+                Sun matters!
+            </p>
+            <div class="plot-container">
+                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_monthly_sun_hours.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Section 6: Sun Hours by Year and Month -->
+        <div class="blog-section">
+            <div class="section-number">6</div>
+            <h2 class="plot-title">Sun hours, again</h2>
+            <p class="plot-description">
+                Phew
+            </p>
+            <div class="plot-container">
+                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_sun_hours_by_year_month.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Section 7: Degree Days Analysis -->
+        <div class="blog-section">
+            <div class="section-number">7</div>
+            <h2 class="plot-title">20 Degree Days or "Tuttugu gráður á pallinum"</h2>
+            <p class="plot-description">
+                People typically prefer warm days!
+            </p>
+            <div class="plot-container">
+                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_20_degree_days.html"></iframe>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Section 8: Days Without Sun -->
+        <div class="blog-section">
+            <div class="section-number">8</div>
+            <h2 class="plot-title">Days Without Sun: The Polar Night Phenomenon or just two gray cities?</h2>
+            <p class="plot-description">
+                Gothenburg is gray, what about Reykajvík?
+            </p>
+            <div class="plot-container">
+                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_days_without_sun.html"></iframe>
+            </div>
+        </div>
+    </div>
+    

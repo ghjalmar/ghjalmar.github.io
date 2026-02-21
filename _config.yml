@@ -1,0 +1,14 @@
+title: "ghjalmar.is"
+description: "Weather updates and more from ghjalmar"
+url: "https://www.ghjalmar.is"   # required for absolute URLs
+author:
+  name: "Guðmundur Hjalmar Egilsson"
+
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+collections:
+  authors:
