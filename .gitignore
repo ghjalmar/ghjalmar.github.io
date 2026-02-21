@@ -1,1 +1,6 @@
-simple_server.py
+_site/*
+.jekyll-cache/*
+Gemfile.lock # Ignore the Gemfile.lock file, Github pages will build the site using the Gemfile and its dependencies, so we don't need to include the lock file in version control.
+
+.github/*
+.sass.-cache/*
