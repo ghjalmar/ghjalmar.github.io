@@ -1,9 +1,14 @@
 ---
 layout: post
-title: Reykjavik versus Gothenburg Weather Comparison
+title: Reykjavík versus Gothenburg Weather Comparison
 date: 2026-02-21 00:00:00 +0000
 ---
-<p>Data visualization comparing weather patterns between Reykjavik, Iceland and Gothenburg, Sweden</p>
+<p>Data visualization comparing weather patterns between Reykjavík, Iceland and Gothenburg, Sweden</p>
+</br>
+<p>The data presented here is based on historical weather records from both cities, between 2010 and 2014, with the data collected from Veðurstofa Íslands (the National Weather Service, www.vedur.is) and the SMHI (Swedish Meteorological and Hydrological Institute, www.smhi.se).</p>
+</br>
+<p><b>Note that this page is still under development and may update whenever! / Þessi síða er enn í vinnslu!</b></p>
+
 <style>
         * {
             margin: 0;
@@ -142,9 +147,9 @@ date: 2026-02-21 00:00:00 +0000
 <div class="container">
     <!-- Section 1: Temperature Patterns -->
     <div class="blog-section">
-            <h2 class="plot-title">Temperature Patterns</h2>
+            <h2 class="plot-title">Average monthly temperature</h2>
             <p class="plot-description">
-                Which one is warmer?
+                Which one is warmer? On average, both cities are similar in January and February but in March and beynd Gothenburg is warmer, specially during the summer months June, July and August.
             </p>
             <div class="plot-container">
                 <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_monthly_temperature.html"></iframe>
@@ -155,9 +160,9 @@ date: 2026-02-21 00:00:00 +0000
         
         <!-- Section 2: Yearly Temperature Trends -->
         <div class="blog-section">
-            <h2 class="plot-title">Yearly Temperature Trends</h2>
+            <h2 class="plot-title">Average yearly temperature</h2>
             <p class="plot-description">
-                By year.
+                As was to be expected after the previous image with the monthly temperatures, the yearly average is higher for Gothenburg as well. The difference is really noticable for the years 2015, 2018 and 2024, where Gothenburg had a very warm year and Reykjavik a very cold one.
             </p>
             <div class="plot-container">
                 <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_yearly_temperature.html"></iframe>
@@ -168,21 +173,24 @@ date: 2026-02-21 00:00:00 +0000
         
         <!-- Section 3: Wind Patterns -->
         <div class="blog-section">
-            <h2 class="plot-title">The wind</h2>
+            <h2 class="plot-title">Looking at the wind</h2>
             <p class="plot-description">
-                Which one is windier?
+                Both cities are known for being windy, which one is windier?
+                Reykjavík looks to be quite more windier in the winter months but both cities are as windy during summer.
+                Its worth noting that the wind in Gothenburg seems to be similar for all months of the year.
             </p>
             <div class="plot-container">
                 <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_monthly_wind.html"></iframe>
             </div>
-            <p class="anecdote">
-                Göteborg is often described as windy, but let's see what the data says!
+            <p class="plot-description">
+                Average wind only says so much, lets take a look at the number of days where it was really windy!
             </p>
             <div class="plot-container">
                 <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_10_mps_wind_days.html"></iframe>
             </div>
+
             <p class="anecdote">
-                Well, Reykjavík has way more days with wind speeds of 10 meters per second or more than Göteborg, so Reykjavik is definitively windier.
+                Reykjavík has way more days with wind speeds of 10 meters per second or more than Gothenburg, so Reykjavík is definitively windier.
             </p>
         </div>
         
@@ -192,36 +200,51 @@ date: 2026-02-21 00:00:00 +0000
         <div class="blog-section">
             <h2 class="plot-title">Rain-kjavík or Raining-burg?</h2>
             <p class="plot-description">
-                Where does it rain more?
+                Where does it rain more? Here Gothenburg takes the win, as the city with more total precipitation each year.
+                Note that this is just <em>total precipitation</em> and not the type. I.e. it might snow more in Reykjavík than in Gothenburg.
             </p>
             <div class="plot-container">
                 <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_yearly_precipitation.html"></iframe>
             </div>
+            <p class="plot-description">
+                What about days with rain? Reykjavík is famous for rapidly changing weather, where it can be sunny one moment and raining the next, so it would be interesting to see if it rains more often in Reykjavík than in Gothenburg.
+            </p>
+            <div class="plot-container">
+                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_days_with_precipitation.html"></iframe>
+            </div>
+            <p class="anecdote">
+                Reykjavík has more days with precipitation than Gothenburg, but it still <em>rains more</em> in Gothenburg.
         </div>
         
         <div class="divider"></div>
         
         <!-- Section 5: Monthly Sunshine Hours -->
         <div class="blog-section">
-            <h2 class="plot-title">Monthly Sunshine Hours: Does midnight sun count?</h2>
+            <h2 class="plot-title">Hello sunshine: does midnight sun count?</h2>
             <p class="plot-description">
-                Sun matters!
+                Sun matters! And on average is seems to be more of it in Gothenburg.
             </p>
             <div class="plot-container">
                 <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_monthly_sun_hours.html"></iframe>
             </div>
-        </div>
-        
-        <div class="divider"></div>
-        
-        <!-- Section 6: Sun Hours by Year and Month -->
-        <div class="blog-section">
-            <h2 class="plot-title">Sun hours, again</h2>
+
             <p class="plot-description">
-                Phew
+                Phew, the next plot is difficult but it is the <em>total sun hours of each month</em>. The x-axis still needs some work.
+                We see that the sun hours are low in the winter but peak during summer, and for some years there was even more sun in Reykjavík than Gothenburg!
+                Most years there are more total sun hours in Gothenburg than Reykjavík though. 
             </p>
             <div class="plot-container">
                 <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_sun_hours_by_year_month.html"></iframe>
+            </div>
+
+            <h2 class="plot-title">Days Without Sun: The Polar Night Phenomenon or just two gray cities?</h2>
+            <p class="plot-description">
+                Gothenburg is gray, what about Reykjavík?
+                The winter is dark in both cities, there is no denying it.
+                January and December is specially dark in Reykjavík but February, March, October and November, seem to be equally gray in both cities.
+            </p>
+            <div class="plot-container">
+                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_days_without_sun.html"></iframe>
             </div>
         </div>
         
@@ -231,24 +254,21 @@ date: 2026-02-21 00:00:00 +0000
         <div class="blog-section">
             <h2 class="plot-title">20 Degree Days or "Tuttugu gráður á pallinum"</h2>
             <p class="plot-description">
-                People typically prefer warm days!
+                I saved the best (or the worst) until the last! People typically prefer warm days!
             </p>
             <div class="plot-container">
                 <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_20_degree_days.html"></iframe>
+            </div>
+            <p class="plot-description">
+                What about cold days, is Reykjavík so much more colder?
+                2010 looks like an exceptionally cold year in Gothenburg, but apart from that Reykjavík typically has more days where the temperature goes below 0 degrees Celsius.
+            </p>
+            <div class="plot-container">
+                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_below_zero_days.html"></iframe>
             </div>
         </div>
         
         <div class="divider"></div>
         
-        <!-- Section 8: Days Without Sun -->
-        <div class="blog-section">
-            <h2 class="plot-title">Days Without Sun: The Polar Night Phenomenon or just two gray cities?</h2>
-            <p class="plot-description">
-                Gothenburg is gray, what about Reykajvík?
-            </p>
-            <div class="plot-container">
-                <iframe src="{{ site.baseurl }}/assets/images/gbg_rvk_comparison/reykjavik_goteborg_comparison_days_without_sun.html"></iframe>
-            </div>
-        </div>
     </div>
     
