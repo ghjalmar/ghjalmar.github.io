@@ -1,0 +1,346 @@
+/* ============================================================
+   Base reset & custom properties
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --border: #E2E8F0;
+  --text: #1E293B;
+  --text-muted: #64748B;
+  --accent-a: #3B82F6;
+  --accent-b: #F59E0B;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.04);
+}
+
+html { font-size: 16px; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.app-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.app-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.control-group label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+select, input[type="number"] {
+  height: 2rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--surface);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+select:focus, input[type="number"]:focus {
+  border-color: var(--accent-a);
+  box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+}
+
+select { min-width: 150px; max-width: 200px; }
+input[type="number"] { width: 76px; }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.btn-lang {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--surface);
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-lang:hover { background: var(--bg); color: var(--text); }
+
+#build-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Main content
+   ============================================================ */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+#quality-warnings {
+  background: #FEF9C3;
+  border: 1px solid #FDE047;
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  color: #713F12;
+}
+
+#placeholder {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+#status {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   Chart sections
+   ============================================================ */
+.section {
+  margin-bottom: 2rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.section-arrow {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+}
+
+.section.collapsed .section-arrow { transform: rotate(-90deg); }
+.section.collapsed .section-body { display: none; }
+
+/* Section accent bars */
+.section[data-section="temperature"] .section-header { border-color: var(--accent-a); }
+.section[data-section="sun"] .section-header { border-color: #FBBF24; }
+.section[data-section="precipitation"] .section-header { border-color: #34D399; }
+.section[data-section="wind"] .section-header { border-color: #A78BFA; }
+.section[data-section="thresholds"] .section-header { border-color: #FB7185; }
+
+.chart-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 720px;
+}
+
+.chart-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.chart-container {
+  width: 100%;
+  min-height: 300px;
+}
+
+/* ============================================================
+   Tabs
+   ============================================================ */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 2px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.tab {
+  padding: 0.3rem 0.85rem;
+  border: none;
+  background: transparent;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.tab:hover { color: var(--text); }
+
+.tab-active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+/* ============================================================
+   Ranking table
+   ============================================================ */
+.ranking-wrapper {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.ranking-table th,
+.ranking-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ranking-table th {
+  background: var(--bg);
+  font-weight: 600;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  user-select: none;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.ranking-table th:hover {
+  color: var(--text);
+  background: #E2E8F0;
+}
+
+.ranking-table th.num,
+.ranking-table td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.ranking-table th::after {
+  display: inline-block;
+  margin-left: 0.3rem;
+  font-size: 0.7em;
+  opacity: 0.4;
+  content: "↕";
+}
+.ranking-table th.sort-asc::after  { content: "▲"; opacity: 1; color: var(--accent-a); }
+.ranking-table th.sort-desc::after { content: "▼"; opacity: 1; color: var(--accent-a); }
+
+.ranking-table tbody tr:hover { background: var(--bg); }
+.ranking-table tbody tr:last-child td { border-bottom: none; }
+
+.ranking-table .sticky-col {
+  position: sticky;
+  left: 0;
+  background: var(--surface);
+  z-index: 1;
+  box-shadow: 1px 0 0 var(--border);
+}
+.ranking-table th.sticky-col {
+  background: var(--bg);
+  z-index: 3;
+}
+.ranking-table tbody tr:hover .sticky-col { background: var(--bg); }
+
+#ranking-status {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   Responsive header
+   ============================================================ */
+@media (max-width: 640px) {
+  .header-inner { padding: 0.6rem 0.75rem; }
+  .app-title { font-size: 0.95rem; }
+  select { min-width: 120px; }
+  #build-date { display: none; }
+  .ranking-table { font-size: 0.8rem; }
+  .ranking-table th, .ranking-table td { padding: 0.4rem 0.5rem; }
+}

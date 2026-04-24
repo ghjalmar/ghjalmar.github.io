@@ -1,0 +1,120 @@
+{
+  "build": "2026-04-24T17:23:05Z",
+  "source_commit": "6b234f4",
+  "report": [
+    {
+      "slug": "reykjavik",
+      "total_days": 5844,
+      "parsed_days": 5844,
+      "missing_days": 0,
+      "missing_sample": []
+    },
+    {
+      "slug": "akureyri",
+      "total_days": 5844,
+      "parsed_days": 5844,
+      "missing_days": 0,
+      "missing_sample": []
+    },
+    {
+      "slug": "goteborg",
+      "total_days": 5844,
+      "parsed_days": 5813,
+      "missing_days": 31,
+      "missing_sample": [
+        "2013-12-01",
+        "2013-12-02",
+        "2013-12-03",
+        "2013-12-04",
+        "2013-12-05",
+        "2013-12-06",
+        "2013-12-07",
+        "2013-12-08",
+        "2013-12-09",
+        "2013-12-10"
+      ]
+    },
+    {
+      "slug": "stockholm",
+      "total_days": 5844,
+      "parsed_days": 5844,
+      "missing_days": 0,
+      "missing_sample": []
+    },
+    {
+      "slug": "norrkoping",
+      "total_days": 5844,
+      "parsed_days": 5844,
+      "missing_days": 0,
+      "missing_sample": []
+    },
+    {
+      "slug": "visby",
+      "total_days": 5844,
+      "parsed_days": 5844,
+      "missing_days": 0,
+      "missing_sample": []
+    },
+    {
+      "slug": "karlskrona",
+      "total_days": 5844,
+      "parsed_days": 5763,
+      "missing_days": 81,
+      "missing_sample": [
+        "2010-01-01",
+        "2010-01-02",
+        "2010-01-03",
+        "2010-01-04",
+        "2010-01-05",
+        "2010-01-06",
+        "2010-01-07",
+        "2010-01-08",
+        "2010-01-09",
+        "2010-01-10"
+      ]
+    },
+    {
+      "slug": "borlange",
+      "total_days": 5844,
+      "parsed_days": 5844,
+      "missing_days": 0,
+      "missing_sample": []
+    },
+    {
+      "slug": "umea",
+      "total_days": 5844,
+      "parsed_days": 5844,
+      "missing_days": 0,
+      "missing_sample": []
+    },
+    {
+      "slug": "ostersund",
+      "total_days": 5844,
+      "parsed_days": 5844,
+      "missing_days": 0,
+      "missing_sample": []
+    },
+    {
+      "slug": "lulea",
+      "total_days": 5844,
+      "parsed_days": 5844,
+      "missing_days": 0,
+      "missing_sample": []
+    },
+    {
+      "slug": "kiruna",
+      "total_days": 5844,
+      "parsed_days": 5837,
+      "missing_days": 7,
+      "missing_sample": [
+        "2024-10-01",
+        "2024-10-02",
+        "2024-10-03",
+        "2024-10-04",
+        "2024-10-05",
+        "2024-10-06",
+        "2024-10-07"
+      ]
+    }
+  ]
+}
