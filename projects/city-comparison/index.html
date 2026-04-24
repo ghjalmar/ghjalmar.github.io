@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veðursamanburður / Weather comparison</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Plotly via CDN — no build step required -->
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+
+<!-- ================================================================
+     Sticky header: city pickers + year range + language toggle
+     ================================================================ -->
+<header class="app-header">
+  <div class="header-inner">
+    <span class="app-title">🌤 Veðursamanburður</span>
+
+    <!-- Tab toggle -->
+    <div class="tabs" role="tablist">
+      <button id="tab-compare" class="tab tab-active" role="tab" aria-selected="true"
+              data-tab="compare" data-i18n="ui_tab_compare">Samanburður</button>
+      <button id="tab-ranking" class="tab" role="tab" aria-selected="false"
+              data-tab="ranking" data-i18n="ui_tab_ranking">Listi</button>
+    </div>
+
+    <div class="controls" id="controls-compare">
+      <!-- City A -->
+      <div class="control-group">
+        <select id="city-a" aria-label="Borg A">
+          <option value="">Veldu borg A</option>
+        </select>
+      </div>
+
+      <span style="color:#94A3B8;font-size:1.1rem">↔</span>
+
+      <!-- City B -->
+      <div class="control-group">
+        <select id="city-b" aria-label="Borg B">
+          <option value="">Veldu borg B</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Year range (shared by both tabs) -->
+    <div class="controls" id="controls-years">
+      <div class="control-group">
+        <label for="start-year" data-i18n="ui_start_year">Frá ári</label>
+        <input id="start-year" type="number" min="2010" max="2025" value="2010" step="1" />
+      </div>
+      <div class="control-group">
+        <label for="end-year" data-i18n="ui_end_year">Til árs</label>
+        <input id="end-year" type="number" min="2010" max="2025" value="2025" step="1" />
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button id="lang-toggle" class="btn-lang" title="Switch language / Skipta um tungumál">EN</button>
+      <span id="build-date"></span>
+    </div>
+  </div>
+</header>
+
+<!-- ================================================================
+     Main content
+     ================================================================ -->
+<main>
+
+  <!-- Quality warnings (hidden by default) -->
+  <div id="quality-warnings" hidden></div>
+
+  <!-- ======================= Compare view ======================= -->
+  <div id="view-compare">
+
+  <!-- Initial placeholder -->
+  <div id="placeholder">
+    <p data-i18n="ui_pick_both">Veldu tvær borgir til að sjá samanburð.</p>
+  </div>
+
+  <!-- Loading / error status -->
+  <div id="status" hidden></div>
+
+  <!-- Chart area (hidden until comparison is ready) -->
+  <div id="charts-area" hidden>
+
+    <!-- ── Temperature section ── -->
+    <section class="section" data-section="temperature">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="true"
+           onclick="toggleSection(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection(this)">
+        <span class="section-title" data-i18n="ui_section_temperature">Hitastig</span>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="chart-grid">
+          <div class="chart-card">
+            <div id="chart-hot-days" class="chart-container"></div>
+          </div>
+          <div class="chart-card">
+            <div id="chart-bz-days" class="chart-container"></div>
+          </div>
+          <div class="chart-card">
+            <div id="chart-monthly-temp" class="chart-container"></div>
+          </div>
+          <div class="chart-card">
+            <div id="chart-monthly-minmax" class="chart-container"></div>
+          </div>
+          <div class="chart-card chart-wide">
+            <div id="chart-yearly-temp" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Sun section ── -->
+    <section class="section" data-section="sun">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="true"
+           onclick="toggleSection(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection(this)">
+        <span class="section-title" data-i18n="ui_section_sun">Sólskin</span>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="chart-grid">
+          <div class="chart-card">
+            <div id="chart-monthly-sun" class="chart-container"></div>
+          </div>
+          <div class="chart-card">
+            <div id="chart-nosun-days" class="chart-container"></div>
+          </div>
+          <div class="chart-card chart-wide">
+            <div id="chart-sun-timeseries" class="chart-container"></div>
+          </div>
+          <div class="chart-card chart-wide">
+            <div id="chart-yearly-sun" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Precipitation section ── -->
+    <section class="section" data-section="precipitation">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="true"
+           onclick="toggleSection(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection(this)">
+        <span class="section-title" data-i18n="ui_section_precipitation">Úrkoma</span>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="chart-grid">
+          <div class="chart-card">
+            <div id="chart-monthly-prec" class="chart-container"></div>
+          </div>
+          <div class="chart-card">
+            <div id="chart-monthly-raindays" class="chart-container"></div>
+          </div>
+          <div class="chart-card chart-wide">
+            <div id="chart-yearly-raindays" class="chart-container"></div>
+          </div>
+          <div class="chart-card chart-wide">
+            <div id="chart-yearly-prec" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Wind section ── -->
+    <section class="section" data-section="wind">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="true"
+           onclick="toggleSection(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection(this)">
+        <span class="section-title" data-i18n="ui_section_wind">Vindur</span>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="chart-grid">
+          <div class="chart-card chart-wide">
+            <div id="chart-monthly-wind" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Temperature thresholds section ── -->
+    <section class="section" data-section="thresholds">
+      <div class="section-header" role="button" tabindex="0" aria-expanded="true"
+           onclick="toggleSection(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleSection(this)">
+        <span class="section-title" data-i18n="ui_section_thresholds">Hitaviðmið</span>
+        <span class="section-arrow">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="chart-grid">
+          <div class="chart-card chart-wide">
+            <div id="chart-thresholds" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /#charts-area -->
+  </div><!-- /#view-compare -->
+
+  <!-- ======================= Ranking view ======================= -->
+  <div id="view-ranking" hidden>
+    <div id="ranking-status" hidden></div>
+    <div class="ranking-wrapper">
+      <table id="ranking-table" class="ranking-table">
+        <thead>
+          <tr id="ranking-head"></tr>
+        </thead>
+        <tbody id="ranking-body"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<!-- ================================================================
+     Collapsible section toggle (tiny inline script, no module needed)
+     ================================================================ -->
+<script>
+  function toggleSection(headerEl) {
+    const section = headerEl.closest(".section");
+    const expanded = !section.classList.contains("collapsed");
+    section.classList.toggle("collapsed", expanded);
+    headerEl.setAttribute("aria-expanded", String(!expanded));
+  }
+</script>
+
+<!-- Main app (ES module) -->
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
