@@ -272,7 +272,7 @@ export function daysWithoutSunPerMonth(rows) {
 }
 
 /**
- * Total rainy days (prec != 0) per year, zeros for missing years.
+ * Total rainy days (prec >= 0.1 mm) per year, zeros for missing years.
  * Returns [{year, count}].
  * @param {Array} rows
  * @param {number} startYear
@@ -283,7 +283,7 @@ export function daysWithPrecipitationPerYear(rows, startYear, endYear) {
   const perYearMonth = new Map(); // "YYYY-MM" -> count
   for (const row of rows) {
     const prec = row.prec ?? 0;
-    if (prec !== 0) {
+    if (prec >= 0.1) {
       const key = row.d.slice(0, 7);
       perYearMonth.set(key, (perYearMonth.get(key) ?? 0) + 1);
     }
@@ -301,7 +301,7 @@ export function daysWithPrecipitationPerYear(rows, startYear, endYear) {
 }
 
 /**
- * Average rainy days (prec != 0) per calendar month across all years.
+ * Average rainy days (prec >= 0.1 mm) per calendar month across all years.
  * Returns [{month, value}] for months 1-12.
  * @param {Array} rows
  */
@@ -309,7 +309,7 @@ export function daysWithPrecipitationPerMonth(rows) {
   const perYearMonth = new Map(); // "YYYY-MM" -> count
   for (const row of rows) {
     const prec = row.prec ?? 0;
-    if (prec !== 0) {
+    if (prec >= 0.1) {
       const key = row.d.slice(0, 7);
       perYearMonth.set(key, (perYearMonth.get(key) ?? 0) + 1);
     }
@@ -325,30 +325,6 @@ export function daysWithPrecipitationPerMonth(rows) {
     month: i + 1,
     value: monthCounts[i + 1] > 0 ? monthSums[i + 1] / monthCounts[i + 1] : 0,
   }));
-}
-
-/**
- * Count of days per year where wind > threshold m/s, zeros for missing years.
- * Returns [{year, count}].
- * @param {Array} rows
- * @param {number} [threshold=10]
- * @param {number} startYear
- * @param {number} endYear
- */
-export function windyDaysPerYear(rows, threshold = 10, startYear, endYear) {
-  const counts = new Map();
-  for (const row of rows) {
-    if (row.wind == null) continue;
-    if (row.wind > threshold) {
-      const { year } = ym(row.d);
-      counts.set(year, (counts.get(year) ?? 0) + 1);
-    }
-  }
-  const result = [];
-  for (let y = startYear; y <= endYear; y++) {
-    result.push({ year: y, count: counts.get(y) ?? 0 });
-  }
-  return result;
 }
 
 /**
@@ -408,7 +384,6 @@ export function computeAllAggregations(rows, startYear, endYear) {
       hot_days: hotDaysPerYear(rows, 20, startYear, endYear),
       below_zero_days: belowZeroDaysPerYear(rows, 0, startYear, endYear),
       rainy_days: daysWithPrecipitationPerYear(rows, startYear, endYear),
-      windy_days: windyDaysPerYear(rows, 10, startYear, endYear),
     },
     threshold_percentages: temperatureThresholdPercentages(rows),
     sun_hours_by_year_month: sunHoursByYearMonth(rows),

@@ -538,7 +538,6 @@ const RANK_COLUMNS = [
   { key: "precipitation", i18n: "ui_col_precipitation", type: "number", digits: 0 },
   { key: "rainy_days",    i18n: "ui_col_rainy_days",    type: "number", digits: 0 },
   { key: "wind",          i18n: "ui_col_wind",          type: "number", digits: 1 },
-  { key: "windy_days",    i18n: "ui_col_windy_days",    type: "number", digits: 0 },
 ];
 
 function meanOf(arr) {
@@ -562,9 +561,6 @@ function cityRankMetrics(agg, meta) {
     precipitation: meanOf(agg.yearly.precipitation.map((d) => d.value)),
     rainy_days:    meanOf(agg.yearly.rainy_days.map((d) => d.count)),
     wind:          meanOf(agg.monthly.wind.map((d) => d.value)),
-    windy_days:    agg.yearly.windy_days
-      ? meanOf(agg.yearly.windy_days.map((d) => d.count))
-      : null,
   };
 }
 

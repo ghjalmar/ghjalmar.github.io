@@ -1,6 +1,6 @@
 {
-  "build": "2026-04-24T17:23:05Z",
-  "source_commit": "6b234f4",
+  "build": "2026-04-25T06:37:37Z",
+  "source_commit": "bb31a33",
   "slug": "ostersund",
   "start_year": 2010,
   "end_year": 2025,
@@ -763,72 +763,6 @@
       {
         "year": 2025,
         "count": 166
-      }
-    ],
-    "windy_days": [
-      {
-        "year": 2010,
-        "count": 0
-      },
-      {
-        "year": 2011,
-        "count": 0
-      },
-      {
-        "year": 2012,
-        "count": 2
-      },
-      {
-        "year": 2013,
-        "count": 0
-      },
-      {
-        "year": 2014,
-        "count": 0
-      },
-      {
-        "year": 2015,
-        "count": 0
-      },
-      {
-        "year": 2016,
-        "count": 0
-      },
-      {
-        "year": 2017,
-        "count": 2
-      },
-      {
-        "year": 2018,
-        "count": 2
-      },
-      {
-        "year": 2019,
-        "count": 1
-      },
-      {
-        "year": 2020,
-        "count": 2
-      },
-      {
-        "year": 2021,
-        "count": 0
-      },
-      {
-        "year": 2022,
-        "count": 1
-      },
-      {
-        "year": 2023,
-        "count": 1
-      },
-      {
-        "year": 2024,
-        "count": 0
-      },
-      {
-        "year": 2025,
-        "count": 3
       }
     ]
   },

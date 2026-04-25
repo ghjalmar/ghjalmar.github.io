@@ -127,7 +127,6 @@ export const TRANSLATIONS = {
   ui_col_precipitation: { is: "Úrkoma [mm]", en: "Precip [mm]" },
   ui_col_rainy_days: { is: "Úrkomudagar", en: "Rainy days" },
   ui_col_wind: { is: "Vindur [m/s]", en: "Wind [m/s]" },
-  ui_col_windy_days: { is: "Dagar >10 m/s", en: "Days >10 m/s" },
 
   ui_col_hint: {
     is: "Öll gildi eru meðaltal á ári fyrir valið tímabil.",

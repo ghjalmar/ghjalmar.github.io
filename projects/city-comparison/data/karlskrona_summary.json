@@ -1,6 +1,6 @@
 {
-  "build": "2026-04-24T17:23:05Z",
-  "source_commit": "6b234f4",
+  "build": "2026-04-25T06:37:37Z",
+  "source_commit": "bb31a33",
   "slug": "karlskrona",
   "start_year": 2010,
   "end_year": 2025,
@@ -320,51 +320,51 @@
     "days_with_precipitation": [
       {
         "month": 1,
-        "value": 12.88
+        "value": 15.85
       },
       {
         "month": 2,
-        "value": 11.38
+        "value": 14.0
       },
       {
         "month": 3,
-        "value": 9.5
+        "value": 11.69
       },
       {
         "month": 4,
-        "value": 7.56
+        "value": 9.31
       },
       {
         "month": 5,
-        "value": 10.25
+        "value": 11.71
       },
       {
         "month": 6,
-        "value": 8.62
+        "value": 10.62
       },
       {
         "month": 7,
-        "value": 10.06
+        "value": 12.38
       },
       {
         "month": 8,
-        "value": 9.25
+        "value": 11.38
       },
       {
         "month": 9,
-        "value": 8.94
-      },
-      {
-        "month": 10,
         "value": 11.0
       },
       {
+        "month": 10,
+        "value": 13.54
+      },
+      {
         "month": 11,
-        "value": 12.44
+        "value": 15.31
       },
       {
         "month": 12,
-        "value": 12.81
+        "value": 14.64
       }
     ]
   },
@@ -763,72 +763,6 @@
       {
         "year": 2025,
         "count": 132
-      }
-    ],
-    "windy_days": [
-      {
-        "year": 2010,
-        "count": 11
-      },
-      {
-        "year": 2011,
-        "count": 25
-      },
-      {
-        "year": 2012,
-        "count": 6
-      },
-      {
-        "year": 2013,
-        "count": 13
-      },
-      {
-        "year": 2014,
-        "count": 12
-      },
-      {
-        "year": 2015,
-        "count": 23
-      },
-      {
-        "year": 2016,
-        "count": 12
-      },
-      {
-        "year": 2017,
-        "count": 19
-      },
-      {
-        "year": 2018,
-        "count": 13
-      },
-      {
-        "year": 2019,
-        "count": 12
-      },
-      {
-        "year": 2020,
-        "count": 27
-      },
-      {
-        "year": 2021,
-        "count": 9
-      },
-      {
-        "year": 2022,
-        "count": 10
-      },
-      {
-        "year": 2023,
-        "count": 11
-      },
-      {
-        "year": 2024,
-        "count": 10
-      },
-      {
-        "year": 2025,
-        "count": 7
       }
     ]
   },

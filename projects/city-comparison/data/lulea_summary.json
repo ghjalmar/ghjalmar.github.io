@@ -1,6 +1,6 @@
 {
-  "build": "2026-04-24T17:23:05Z",
-  "source_commit": "6b234f4",
+  "build": "2026-04-25T06:37:37Z",
+  "source_commit": "bb31a33",
   "slug": "lulea",
   "start_year": 2010,
   "end_year": 2025,
@@ -320,51 +320,51 @@
     "days_with_precipitation": [
       {
         "month": 1,
-        "value": 15.31
+        "value": 18.85
       },
       {
         "month": 2,
-        "value": 13.62
+        "value": 16.77
       },
       {
         "month": 3,
-        "value": 10.5
+        "value": 12.92
       },
       {
         "month": 4,
-        "value": 9.25
-      },
-      {
-        "month": 5,
-        "value": 9.06
-      },
-      {
-        "month": 6,
-        "value": 11.75
-      },
-      {
-        "month": 7,
-        "value": 10.62
-      },
-      {
-        "month": 8,
         "value": 11.38
       },
       {
+        "month": 5,
+        "value": 11.15
+      },
+      {
+        "month": 6,
+        "value": 14.46
+      },
+      {
+        "month": 7,
+        "value": 13.08
+      },
+      {
+        "month": 8,
+        "value": 14.0
+      },
+      {
         "month": 9,
-        "value": 11.12
+        "value": 13.69
       },
       {
         "month": 10,
-        "value": 12.94
+        "value": 15.92
       },
       {
         "month": 11,
-        "value": 13.31
+        "value": 16.38
       },
       {
         "month": 12,
-        "value": 15.69
+        "value": 17.93
       }
     ]
   },
@@ -763,72 +763,6 @@
       {
         "year": 2025,
         "count": 166
-      }
-    ],
-    "windy_days": [
-      {
-        "year": 2010,
-        "count": 2
-      },
-      {
-        "year": 2011,
-        "count": 0
-      },
-      {
-        "year": 2012,
-        "count": 2
-      },
-      {
-        "year": 2013,
-        "count": 0
-      },
-      {
-        "year": 2014,
-        "count": 0
-      },
-      {
-        "year": 2015,
-        "count": 1
-      },
-      {
-        "year": 2016,
-        "count": 1
-      },
-      {
-        "year": 2017,
-        "count": 1
-      },
-      {
-        "year": 2018,
-        "count": 1
-      },
-      {
-        "year": 2019,
-        "count": 0
-      },
-      {
-        "year": 2020,
-        "count": 2
-      },
-      {
-        "year": 2021,
-        "count": 0
-      },
-      {
-        "year": 2022,
-        "count": 0
-      },
-      {
-        "year": 2023,
-        "count": 0
-      },
-      {
-        "year": 2024,
-        "count": 1
-      },
-      {
-        "year": 2025,
-        "count": 0
       }
     ]
   },
